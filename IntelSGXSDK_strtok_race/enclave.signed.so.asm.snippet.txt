@@ -1,0 +1,413 @@
+0000000000021230 <__intel_sse2_strtok>:
+   21230:	f3 0f 1e fa          	repz nop %edx
+   21234:	48 81 ec a8 00 00 00 	sub    $0xa8,%rsp
+   2123b:	48 89 cf             	mov    %rcx,%rdi
+   2123e:	44 0f 11 7c 24 70    	movups %xmm15,0x70(%rsp)
+   21244:	48 89 d6             	mov    %rdx,%rsi
+   21247:	44 0f 11 b4 24 80 00 	movups %xmm14,0x80(%rsp)
+   2124e:	00 00 
+   21250:	44 0f 11 6c 24 10    	movups %xmm13,0x10(%rsp)
+   21256:	44 0f 11 24 24       	movups %xmm12,(%rsp)
+   2125b:	44 0f 11 5c 24 20    	movups %xmm11,0x20(%rsp)
+   21261:	44 0f 11 54 24 30    	movups %xmm10,0x30(%rsp)
+   21267:	44 0f 11 4c 24 40    	movups %xmm9,0x40(%rsp)
+   2126d:	44 0f 11 44 24 50    	movups %xmm8,0x50(%rsp)
+   21273:	0f 11 7c 24 60       	movups %xmm7,0x60(%rsp)
+   21278:	0f 11 b4 24 90 00 00 	movups %xmm6,0x90(%rsp)
+   2127f:	00 
+   21280:	48 85 ff             	test   %rdi,%rdi
+   21283:	0f 84 fe 05 00 00    	je     21887 <__intel_sse2_strtok+0x657>
+   21289:	80 3f 00             	cmpb   $0x0,(%rdi)
+   2128c:	75 11                	jne    2129f <__intel_sse2_strtok+0x6f>
+   2128e:	33 c0                	xor    %eax,%eax
+   21290:	48 89 3d 19 7d 22 00 	mov    %rdi,0x227d19(%rip)        # 248fb0 <g_last_token>
+   21297:	48 81 c4 a8 00 00 00 	add    $0xa8,%rsp
+   2129e:	c3                   	retq   
+   2129f:	89 f1                	mov    %esi,%ecx
+   212a1:	49 89 f0             	mov    %rsi,%r8
+   212a4:	83 e1 0f             	and    $0xf,%ecx
+   212a7:	45 33 d2             	xor    %r10d,%r10d
+   212aa:	4c 2b c1             	sub    %rcx,%r8
+   212ad:	f3 41 0f 6f 00       	movdqu (%r8),%xmm0
+   212b2:	48 8d 15 17 dc 01 00 	lea    0x1dc17(%rip),%rdx        # 3eed0 <__func__.2431+0x757>
+   212b9:	0f b6 14 0a          	movzbl (%rdx,%rcx,1),%edx
+   212bd:	48 8d 05 06 00 00 00 	lea    0x6(%rip),%rax        # 212ca <__intel_sse2_strtok+0x9a>
+   212c4:	48 03 c2             	add    %rdx,%rax
+   212c7:	3e ff e0             	ds jmpq *%rax
+   212ca:	66 0f 73 d8 0f       	psrldq $0xf,%xmm0
+   212cf:	eb 60                	jmp    21331 <__intel_sse2_strtok+0x101>
+   212d1:	66 0f 73 d8 0e       	psrldq $0xe,%xmm0
+   212d6:	eb 59                	jmp    21331 <__intel_sse2_strtok+0x101>
+   212d8:	66 0f 73 d8 0d       	psrldq $0xd,%xmm0
+   212dd:	eb 52                	jmp    21331 <__intel_sse2_strtok+0x101>
+   212df:	66 0f 73 d8 0c       	psrldq $0xc,%xmm0
+   212e4:	eb 4b                	jmp    21331 <__intel_sse2_strtok+0x101>
+   212e6:	66 0f 73 d8 0b       	psrldq $0xb,%xmm0
+   212eb:	eb 44                	jmp    21331 <__intel_sse2_strtok+0x101>
+   212ed:	66 0f 73 d8 0a       	psrldq $0xa,%xmm0
+   212f2:	eb 3d                	jmp    21331 <__intel_sse2_strtok+0x101>
+   212f4:	66 0f 73 d8 09       	psrldq $0x9,%xmm0
+   212f9:	eb 36                	jmp    21331 <__intel_sse2_strtok+0x101>
+   212fb:	66 0f 73 d8 08       	psrldq $0x8,%xmm0
+   21300:	eb 2f                	jmp    21331 <__intel_sse2_strtok+0x101>
+   21302:	66 0f 73 d8 07       	psrldq $0x7,%xmm0
+   21307:	eb 28                	jmp    21331 <__intel_sse2_strtok+0x101>
+   21309:	66 0f 73 d8 06       	psrldq $0x6,%xmm0
+   2130e:	eb 21                	jmp    21331 <__intel_sse2_strtok+0x101>
+   21310:	66 0f 73 d8 05       	psrldq $0x5,%xmm0
+   21315:	eb 1a                	jmp    21331 <__intel_sse2_strtok+0x101>
+   21317:	66 0f 73 d8 04       	psrldq $0x4,%xmm0
+   2131c:	eb 13                	jmp    21331 <__intel_sse2_strtok+0x101>
+   2131e:	66 0f 73 d8 03       	psrldq $0x3,%xmm0
+   21323:	eb 0c                	jmp    21331 <__intel_sse2_strtok+0x101>
+   21325:	66 0f 73 d8 02       	psrldq $0x2,%xmm0
+   2132a:	eb 05                	jmp    21331 <__intel_sse2_strtok+0x101>
+   2132c:	66 0f 73 d8 01       	psrldq $0x1,%xmm0
+   21331:	66 0f 6f d0          	movdqa %xmm0,%xmm2
+   21335:	66 0f ef c9          	pxor   %xmm1,%xmm1
+   21339:	66 0f 74 d1          	pcmpeqb %xmm1,%xmm2
+   2133d:	66 0f d7 d2          	pmovmskb %xmm2,%edx
+   21341:	85 d2                	test   %edx,%edx
+   21343:	75 0b                	jne    21350 <__intel_sse2_strtok+0x120>
+   21345:	41 b9 10 00 00 00    	mov    $0x10,%r9d
+   2134b:	e9 eb 00 00 00       	jmpq   2143b <__intel_sse2_strtok+0x20b>
+   21350:	44 0f bc ca          	bsf    %edx,%r9d
+   21354:	41 83 f9 0f          	cmp    $0xf,%r9d
+   21358:	0f 87 dd 00 00 00    	ja     2143b <__intel_sse2_strtok+0x20b>
+   2135e:	48 8d 15 7b db 01 00 	lea    0x1db7b(%rip),%rdx        # 3eee0 <__func__.2431+0x767>
+   21365:	42 0f b6 14 0a       	movzbl (%rdx,%r9,1),%edx
+   2136a:	48 8d 05 06 00 00 00 	lea    0x6(%rip),%rax        # 21377 <__intel_sse2_strtok+0x147>
+   21371:	48 03 c2             	add    %rdx,%rax
+   21374:	3e ff e0             	ds jmpq *%rax
+   21377:	66 0f 73 f8 01       	pslldq $0x1,%xmm0
+   2137c:	66 0f 73 d8 01       	psrldq $0x1,%xmm0
+   21381:	e9 b5 00 00 00       	jmpq   2143b <__intel_sse2_strtok+0x20b>
+   21386:	66 0f 73 f8 02       	pslldq $0x2,%xmm0
+   2138b:	66 0f 73 d8 02       	psrldq $0x2,%xmm0
+   21390:	e9 a6 00 00 00       	jmpq   2143b <__intel_sse2_strtok+0x20b>
+   21395:	66 0f 73 f8 03       	pslldq $0x3,%xmm0
+   2139a:	66 0f 73 d8 03       	psrldq $0x3,%xmm0
+   2139f:	e9 97 00 00 00       	jmpq   2143b <__intel_sse2_strtok+0x20b>
+   213a4:	66 0f 73 f8 04       	pslldq $0x4,%xmm0
+   213a9:	66 0f 73 d8 04       	psrldq $0x4,%xmm0
+   213ae:	e9 88 00 00 00       	jmpq   2143b <__intel_sse2_strtok+0x20b>
+   213b3:	66 0f 73 f8 05       	pslldq $0x5,%xmm0
+   213b8:	66 0f 73 d8 05       	psrldq $0x5,%xmm0
+   213bd:	eb 7c                	jmp    2143b <__intel_sse2_strtok+0x20b>
+   213bf:	66 0f 73 f8 06       	pslldq $0x6,%xmm0
+   213c4:	66 0f 73 d8 06       	psrldq $0x6,%xmm0
+   213c9:	eb 70                	jmp    2143b <__intel_sse2_strtok+0x20b>
+   213cb:	66 0f 73 f8 07       	pslldq $0x7,%xmm0
+   213d0:	66 0f 73 d8 07       	psrldq $0x7,%xmm0
+   213d5:	eb 64                	jmp    2143b <__intel_sse2_strtok+0x20b>
+   213d7:	66 0f 73 f8 08       	pslldq $0x8,%xmm0
+   213dc:	66 0f 73 d8 08       	psrldq $0x8,%xmm0
+   213e1:	eb 58                	jmp    2143b <__intel_sse2_strtok+0x20b>
+   213e3:	66 0f 73 f8 09       	pslldq $0x9,%xmm0
+   213e8:	66 0f 73 d8 09       	psrldq $0x9,%xmm0
+   213ed:	eb 4c                	jmp    2143b <__intel_sse2_strtok+0x20b>
+   213ef:	66 0f 73 f8 0a       	pslldq $0xa,%xmm0
+   213f4:	66 0f 73 d8 0a       	psrldq $0xa,%xmm0
+   213f9:	eb 40                	jmp    2143b <__intel_sse2_strtok+0x20b>
+   213fb:	66 0f 73 f8 0b       	pslldq $0xb,%xmm0
+   21400:	66 0f 73 d8 0b       	psrldq $0xb,%xmm0
+   21405:	eb 34                	jmp    2143b <__intel_sse2_strtok+0x20b>
+   21407:	66 0f 73 f8 0c       	pslldq $0xc,%xmm0
+   2140c:	66 0f 73 d8 0c       	psrldq $0xc,%xmm0
+   21411:	eb 28                	jmp    2143b <__intel_sse2_strtok+0x20b>
+   21413:	66 0f 73 f8 0d       	pslldq $0xd,%xmm0
+   21418:	66 0f 73 d8 0d       	psrldq $0xd,%xmm0
+   2141d:	eb 1c                	jmp    2143b <__intel_sse2_strtok+0x20b>
+   2141f:	66 0f 73 f8 0e       	pslldq $0xe,%xmm0
+   21424:	66 0f 73 d8 0e       	psrldq $0xe,%xmm0
+   21429:	eb 10                	jmp    2143b <__intel_sse2_strtok+0x20b>
+   2142b:	66 0f 73 f8 0f       	pslldq $0xf,%xmm0
+   21430:	66 0f 73 d8 0f       	psrldq $0xf,%xmm0
+   21435:	eb 04                	jmp    2143b <__intel_sse2_strtok+0x20b>
+   21437:	66 0f 6f c1          	movdqa %xmm1,%xmm0
+   2143b:	f7 d9                	neg    %ecx
+   2143d:	83 c1 10             	add    $0x10,%ecx
+   21440:	44 3b c9             	cmp    %ecx,%r9d
+   21443:	73 08                	jae    2144d <__intel_sse2_strtok+0x21d>
+   21445:	45 33 c9             	xor    %r9d,%r9d
+   21448:	e9 b0 00 00 00       	jmpq   214fd <__intel_sse2_strtok+0x2cd>
+   2144d:	4c 89 c2             	mov    %r8,%rdx
+   21450:	49 8d 48 10          	lea    0x10(%r8),%rcx
+   21454:	48 83 e1 0f          	and    $0xf,%rcx
+   21458:	48 2b d1             	sub    %rcx,%rdx
+   2145b:	48 83 c2 10          	add    $0x10,%rdx
+   2145f:	f3 0f 6f 12          	movdqu (%rdx),%xmm2
+   21463:	66 0f 74 d1          	pcmpeqb %xmm1,%xmm2
+   21467:	66 44 0f d7 ca       	pmovmskb %xmm2,%r9d
+   2146c:	41 d3 e9             	shr    %cl,%r9d
+   2146f:	45 85 c9             	test   %r9d,%r9d
+   21472:	0f 85 03 04 00 00    	jne    2187b <__intel_sse2_strtok+0x64b>
+   21478:	48 83 c2 10          	add    $0x10,%rdx
+   2147c:	f3 0f 6f 12          	movdqu (%rdx),%xmm2
+   21480:	66 0f 74 d1          	pcmpeqb %xmm1,%xmm2
+   21484:	66 0f d7 ca          	pmovmskb %xmm2,%ecx
+   21488:	85 c9                	test   %ecx,%ecx
+   2148a:	74 ec                	je     21478 <__intel_sse2_strtok+0x248>
+   2148c:	0f bc c9             	bsf    %ecx,%ecx
+   2148f:	48 63 c9             	movslq %ecx,%rcx
+   21492:	49 2b c8             	sub    %r8,%rcx
+   21495:	4c 8d 4c 0a f0       	lea    -0x10(%rdx,%rcx,1),%r9
+   2149a:	41 83 f9 10          	cmp    $0x10,%r9d
+   2149e:	76 57                	jbe    214f7 <__intel_sse2_strtok+0x2c7>
+   214a0:	48 c7 05 05 7b 22 00 	movq   $0x0,0x227b05(%rip)        # 248fb0 <g_last_token>
+   214a7:	00 00 00 00 
+   214ab:	e8 16 33 00 00       	callq  247c6 <strtok>
+   214b0:	0f 10 b4 24 90 00 00 	movups 0x90(%rsp),%xmm6
+   214b7:	00 
+   214b8:	0f 10 7c 24 60       	movups 0x60(%rsp),%xmm7
+   214bd:	44 0f 10 44 24 50    	movups 0x50(%rsp),%xmm8
+   214c3:	44 0f 10 4c 24 40    	movups 0x40(%rsp),%xmm9
+   214c9:	44 0f 10 54 24 30    	movups 0x30(%rsp),%xmm10
+   214cf:	44 0f 10 5c 24 20    	movups 0x20(%rsp),%xmm11
+   214d5:	44 0f 10 24 24       	movups (%rsp),%xmm12
+   214da:	44 0f 10 6c 24 10    	movups 0x10(%rsp),%xmm13
+   214e0:	44 0f 10 b4 24 80 00 	movups 0x80(%rsp),%xmm14
+   214e7:	00 00 
+   214e9:	44 0f 10 7c 24 70    	movups 0x70(%rsp),%xmm15
+   214ef:	48 81 c4 a8 00 00 00 	add    $0xa8,%rsp
+   214f6:	c3                   	retq   
+   214f7:	41 ba 01 00 00 00    	mov    $0x1,%r10d
+   214fd:	0f be 17             	movsbl (%rdi),%edx
+   21500:	66 0f 6e d2          	movd   %edx,%xmm2
+   21504:	66 0f 6f d8          	movdqa %xmm0,%xmm3
+   21508:	66 0f 60 d2          	punpcklbw %xmm2,%xmm2
+   2150c:	33 c9                	xor    %ecx,%ecx
+   2150e:	66 0f 60 d2          	punpcklbw %xmm2,%xmm2
+   21512:	33 d2                	xor    %edx,%edx
+   21514:	66 0f 70 d2 00       	pshufd $0x0,%xmm2,%xmm2
+   21519:	66 0f 74 da          	pcmpeqb %xmm2,%xmm3
+   2151d:	66 0f d7 f3          	pmovmskb %xmm3,%esi
+   21521:	85 f6                	test   %esi,%esi
+   21523:	75 27                	jne    2154c <__intel_sse2_strtok+0x31c>
+   21525:	4d 85 d2             	test   %r10,%r10
+   21528:	74 32                	je     2155c <__intel_sse2_strtok+0x32c>
+   2152a:	48 ff c1             	inc    %rcx
+   2152d:	48 83 c2 10          	add    $0x10,%rdx
+   21531:	49 3b ca             	cmp    %r10,%rcx
+   21534:	0f 84 3c 02 00 00    	je     21776 <__intel_sse2_strtok+0x546>
+   2153a:	f3 42 0f 6f 1c 02    	movdqu (%rdx,%r8,1),%xmm3
+   21540:	66 0f 74 da          	pcmpeqb %xmm2,%xmm3
+   21544:	66 0f d7 f3          	pmovmskb %xmm3,%esi
+   21548:	85 f6                	test   %esi,%esi
+   2154a:	74 d9                	je     21525 <__intel_sse2_strtok+0x2f5>
+   2154c:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+   21552:	48 ff c7             	inc    %rdi
+   21555:	0f be 17             	movsbl (%rdi),%edx
+   21558:	85 d2                	test   %edx,%edx
+   2155a:	75 a4                	jne    21500 <__intel_sse2_strtok+0x2d0>
+   2155c:	80 3f 00             	cmpb   $0x0,(%rdi)
+   2155f:	75 50                	jne    215b1 <__intel_sse2_strtok+0x381>
+   21561:	0f 10 b4 24 90 00 00 	movups 0x90(%rsp),%xmm6
+   21568:	00 
+   21569:	33 c0                	xor    %eax,%eax
+   2156b:	0f 10 7c 24 60       	movups 0x60(%rsp),%xmm7
+   21570:	44 0f 10 44 24 50    	movups 0x50(%rsp),%xmm8
+   21576:	44 0f 10 4c 24 40    	movups 0x40(%rsp),%xmm9
+   2157c:	44 0f 10 54 24 30    	movups 0x30(%rsp),%xmm10
+   21582:	44 0f 10 5c 24 20    	movups 0x20(%rsp),%xmm11
+   21588:	44 0f 10 24 24       	movups (%rsp),%xmm12
+   2158d:	44 0f 10 6c 24 10    	movups 0x10(%rsp),%xmm13
+   21593:	44 0f 10 b4 24 80 00 	movups 0x80(%rsp),%xmm14
+   2159a:	00 00 
+   2159c:	44 0f 10 7c 24 70    	movups 0x70(%rsp),%xmm15
+   215a2:	48 89 3d 07 7a 22 00 	mov    %rdi,0x227a07(%rip)        # 248fb0 <g_last_token>
+   215a9:	48 81 c4 a8 00 00 00 	add    $0xa8,%rsp
+   215b0:	c3                   	retq   
+   215b1:	0f be 17             	movsbl (%rdi),%edx
+   215b4:	48 89 f9             	mov    %rdi,%rcx
+   215b7:	66 0f 6e d2          	movd   %edx,%xmm2
+   215bb:	66 0f 6f d8          	movdqa %xmm0,%xmm3
+   215bf:	66 0f 60 d2          	punpcklbw %xmm2,%xmm2
+   215c3:	33 f6                	xor    %esi,%esi
+   215c5:	66 0f 60 d2          	punpcklbw %xmm2,%xmm2
+   215c9:	33 d2                	xor    %edx,%edx
+   215cb:	66 0f 70 d2 00       	pshufd $0x0,%xmm2,%xmm2
+   215d0:	66 0f 74 da          	pcmpeqb %xmm2,%xmm3
+   215d4:	66 44 0f d7 db       	pmovmskb %xmm3,%r11d
+   215d9:	45 85 db             	test   %r11d,%r11d
+   215dc:	75 29                	jne    21607 <__intel_sse2_strtok+0x3d7>
+   215de:	4d 85 d2             	test   %r10,%r10
+   215e1:	0f 84 7c 01 00 00    	je     21763 <__intel_sse2_strtok+0x533>
+   215e7:	48 ff c6             	inc    %rsi
+   215ea:	48 83 c2 10          	add    $0x10,%rdx
+   215ee:	49 3b f2             	cmp    %r10,%rsi
+   215f1:	74 70                	je     21663 <__intel_sse2_strtok+0x433>
+   215f3:	f3 42 0f 6f 1c 02    	movdqu (%rdx,%r8,1),%xmm3
+   215f9:	66 0f 74 da          	pcmpeqb %xmm2,%xmm3
+   215fd:	66 44 0f d7 db       	pmovmskb %xmm3,%r11d
+   21602:	45 85 db             	test   %r11d,%r11d
+   21605:	74 d7                	je     215de <__intel_sse2_strtok+0x3ae>
+   21607:	80 39 00             	cmpb   $0x0,(%rcx)
+   2160a:	74 06                	je     21612 <__intel_sse2_strtok+0x3e2>
+   2160c:	c6 01 00             	movb   $0x0,(%rcx)
+   2160f:	48 ff c1             	inc    %rcx
+   21612:	0f 10 b4 24 90 00 00 	movups 0x90(%rsp),%xmm6
+   21619:	00 
+   2161a:	48 89 f8             	mov    %rdi,%rax
+   2161d:	0f 10 7c 24 60       	movups 0x60(%rsp),%xmm7
+   21622:	44 0f 10 44 24 50    	movups 0x50(%rsp),%xmm8
+   21628:	44 0f 10 4c 24 40    	movups 0x40(%rsp),%xmm9
+   2162e:	44 0f 10 54 24 30    	movups 0x30(%rsp),%xmm10
+   21634:	44 0f 10 5c 24 20    	movups 0x20(%rsp),%xmm11
+   2163a:	44 0f 10 24 24       	movups (%rsp),%xmm12
+   2163f:	44 0f 10 6c 24 10    	movups 0x10(%rsp),%xmm13
+   21645:	44 0f 10 b4 24 80 00 	movups 0x80(%rsp),%xmm14
+   2164c:	00 00 
+   2164e:	44 0f 10 7c 24 70    	movups 0x70(%rsp),%xmm15
+   21654:	48 89 0d 55 79 22 00 	mov    %rcx,0x227955(%rip)        # 248fb0 <g_last_token>
+   2165b:	48 81 c4 a8 00 00 00 	add    $0xa8,%rsp
+   21662:	c3                   	retq   
+   21663:	f3 42 0f 6f 1c 02    	movdqu (%rdx,%r8,1),%xmm3
+   21669:	41 83 f9 0f          	cmp    $0xf,%r9d
+   2166d:	0f 87 e0 00 00 00    	ja     21753 <__intel_sse2_strtok+0x523>
+   21673:	45 89 c9             	mov    %r9d,%r9d
+   21676:	48 8d 15 73 d8 01 00 	lea    0x1d873(%rip),%rdx        # 3eef0 <__func__.2431+0x777>
+   2167d:	42 0f b6 14 0a       	movzbl (%rdx,%r9,1),%edx
+   21682:	48 8d 05 06 00 00 00 	lea    0x6(%rip),%rax        # 2168f <__intel_sse2_strtok+0x45f>
+   21689:	48 03 c2             	add    %rdx,%rax
+   2168c:	3e ff e0             	ds jmpq *%rax
+   2168f:	66 0f 73 fb 01       	pslldq $0x1,%xmm3
+   21694:	66 0f 73 db 01       	psrldq $0x1,%xmm3
+   21699:	e9 b5 00 00 00       	jmpq   21753 <__intel_sse2_strtok+0x523>
+   2169e:	66 0f 73 fb 02       	pslldq $0x2,%xmm3
+   216a3:	66 0f 73 db 02       	psrldq $0x2,%xmm3
+   216a8:	e9 a6 00 00 00       	jmpq   21753 <__intel_sse2_strtok+0x523>
+   216ad:	66 0f 73 fb 03       	pslldq $0x3,%xmm3
+   216b2:	66 0f 73 db 03       	psrldq $0x3,%xmm3
+   216b7:	e9 97 00 00 00       	jmpq   21753 <__intel_sse2_strtok+0x523>
+   216bc:	66 0f 73 fb 04       	pslldq $0x4,%xmm3
+   216c1:	66 0f 73 db 04       	psrldq $0x4,%xmm3
+   216c6:	e9 88 00 00 00       	jmpq   21753 <__intel_sse2_strtok+0x523>
+   216cb:	66 0f 73 fb 05       	pslldq $0x5,%xmm3
+   216d0:	66 0f 73 db 05       	psrldq $0x5,%xmm3
+   216d5:	eb 7c                	jmp    21753 <__intel_sse2_strtok+0x523>
+   216d7:	66 0f 73 fb 06       	pslldq $0x6,%xmm3
+   216dc:	66 0f 73 db 06       	psrldq $0x6,%xmm3
+   216e1:	eb 70                	jmp    21753 <__intel_sse2_strtok+0x523>
+   216e3:	66 0f 73 fb 07       	pslldq $0x7,%xmm3
+   216e8:	66 0f 73 db 07       	psrldq $0x7,%xmm3
+   216ed:	eb 64                	jmp    21753 <__intel_sse2_strtok+0x523>
+   216ef:	66 0f 73 fb 08       	pslldq $0x8,%xmm3
+   216f4:	66 0f 73 db 08       	psrldq $0x8,%xmm3
+   216f9:	eb 58                	jmp    21753 <__intel_sse2_strtok+0x523>
+   216fb:	66 0f 73 fb 09       	pslldq $0x9,%xmm3
+   21700:	66 0f 73 db 09       	psrldq $0x9,%xmm3
+   21705:	eb 4c                	jmp    21753 <__intel_sse2_strtok+0x523>
+   21707:	66 0f 73 fb 0a       	pslldq $0xa,%xmm3
+   2170c:	66 0f 73 db 0a       	psrldq $0xa,%xmm3
+   21711:	eb 40                	jmp    21753 <__intel_sse2_strtok+0x523>
+   21713:	66 0f 73 fb 0b       	pslldq $0xb,%xmm3
+   21718:	66 0f 73 db 0b       	psrldq $0xb,%xmm3
+   2171d:	eb 34                	jmp    21753 <__intel_sse2_strtok+0x523>
+   2171f:	66 0f 73 fb 0c       	pslldq $0xc,%xmm3
+   21724:	66 0f 73 db 0c       	psrldq $0xc,%xmm3
+   21729:	eb 28                	jmp    21753 <__intel_sse2_strtok+0x523>
+   2172b:	66 0f 73 fb 0d       	pslldq $0xd,%xmm3
+   21730:	66 0f 73 db 0d       	psrldq $0xd,%xmm3
+   21735:	eb 1c                	jmp    21753 <__intel_sse2_strtok+0x523>
+   21737:	66 0f 73 fb 0e       	pslldq $0xe,%xmm3
+   2173c:	66 0f 73 db 0e       	psrldq $0xe,%xmm3
+   21741:	eb 10                	jmp    21753 <__intel_sse2_strtok+0x523>
+   21743:	66 0f 73 fb 0f       	pslldq $0xf,%xmm3
+   21748:	66 0f 73 db 0f       	psrldq $0xf,%xmm3
+   2174d:	eb 04                	jmp    21753 <__intel_sse2_strtok+0x523>
+   2174f:	66 0f 6f d9          	movdqa %xmm1,%xmm3
+   21753:	66 0f 74 da          	pcmpeqb %xmm2,%xmm3
+   21757:	66 0f d7 d3          	pmovmskb %xmm3,%edx
+   2175b:	85 d2                	test   %edx,%edx
+   2175d:	0f 85 a4 fe ff ff    	jne    21607 <__intel_sse2_strtok+0x3d7>
+   21763:	48 ff c1             	inc    %rcx
+   21766:	0f be 11             	movsbl (%rcx),%edx
+   21769:	85 d2                	test   %edx,%edx
+   2176b:	0f 85 46 fe ff ff    	jne    215b7 <__intel_sse2_strtok+0x387>
+   21771:	e9 91 fe ff ff       	jmpq   21607 <__intel_sse2_strtok+0x3d7>
+   21776:	f3 42 0f 6f 1c 02    	movdqu (%rdx,%r8,1),%xmm3
+   2177c:	41 83 f9 0f          	cmp    $0xf,%r9d
+   21780:	0f 87 e0 00 00 00    	ja     21866 <__intel_sse2_strtok+0x636>
+   21786:	45 89 c9             	mov    %r9d,%r9d
+   21789:	48 8d 15 70 d7 01 00 	lea    0x1d770(%rip),%rdx        # 3ef00 <__func__.2431+0x787>
+   21790:	42 0f b6 14 0a       	movzbl (%rdx,%r9,1),%edx
+   21795:	48 8d 05 06 00 00 00 	lea    0x6(%rip),%rax        # 217a2 <__intel_sse2_strtok+0x572>
+   2179c:	48 03 c2             	add    %rdx,%rax
+   2179f:	3e ff e0             	ds jmpq *%rax
+   217a2:	66 0f 73 fb 01       	pslldq $0x1,%xmm3
+   217a7:	66 0f 73 db 01       	psrldq $0x1,%xmm3
+   217ac:	e9 b5 00 00 00       	jmpq   21866 <__intel_sse2_strtok+0x636>
+   217b1:	66 0f 73 fb 02       	pslldq $0x2,%xmm3
+   217b6:	66 0f 73 db 02       	psrldq $0x2,%xmm3
+   217bb:	e9 a6 00 00 00       	jmpq   21866 <__intel_sse2_strtok+0x636>
+   217c0:	66 0f 73 fb 03       	pslldq $0x3,%xmm3
+   217c5:	66 0f 73 db 03       	psrldq $0x3,%xmm3
+   217ca:	e9 97 00 00 00       	jmpq   21866 <__intel_sse2_strtok+0x636>
+   217cf:	66 0f 73 fb 04       	pslldq $0x4,%xmm3
+   217d4:	66 0f 73 db 04       	psrldq $0x4,%xmm3
+   217d9:	e9 88 00 00 00       	jmpq   21866 <__intel_sse2_strtok+0x636>
+   217de:	66 0f 73 fb 05       	pslldq $0x5,%xmm3
+   217e3:	66 0f 73 db 05       	psrldq $0x5,%xmm3
+   217e8:	eb 7c                	jmp    21866 <__intel_sse2_strtok+0x636>
+   217ea:	66 0f 73 fb 06       	pslldq $0x6,%xmm3
+   217ef:	66 0f 73 db 06       	psrldq $0x6,%xmm3
+   217f4:	eb 70                	jmp    21866 <__intel_sse2_strtok+0x636>
+   217f6:	66 0f 73 fb 07       	pslldq $0x7,%xmm3
+   217fb:	66 0f 73 db 07       	psrldq $0x7,%xmm3
+   21800:	eb 64                	jmp    21866 <__intel_sse2_strtok+0x636>
+   21802:	66 0f 73 fb 08       	pslldq $0x8,%xmm3
+   21807:	66 0f 73 db 08       	psrldq $0x8,%xmm3
+   2180c:	eb 58                	jmp    21866 <__intel_sse2_strtok+0x636>
+   2180e:	66 0f 73 fb 09       	pslldq $0x9,%xmm3
+   21813:	66 0f 73 db 09       	psrldq $0x9,%xmm3
+   21818:	eb 4c                	jmp    21866 <__intel_sse2_strtok+0x636>
+   2181a:	66 0f 73 fb 0a       	pslldq $0xa,%xmm3
+   2181f:	66 0f 73 db 0a       	psrldq $0xa,%xmm3
+   21824:	eb 40                	jmp    21866 <__intel_sse2_strtok+0x636>
+   21826:	66 0f 73 fb 0b       	pslldq $0xb,%xmm3
+   2182b:	66 0f 73 db 0b       	psrldq $0xb,%xmm3
+   21830:	eb 34                	jmp    21866 <__intel_sse2_strtok+0x636>
+   21832:	66 0f 73 fb 0c       	pslldq $0xc,%xmm3
+   21837:	66 0f 73 db 0c       	psrldq $0xc,%xmm3
+   2183c:	eb 28                	jmp    21866 <__intel_sse2_strtok+0x636>
+   2183e:	66 0f 73 fb 0d       	pslldq $0xd,%xmm3
+   21843:	66 0f 73 db 0d       	psrldq $0xd,%xmm3
+   21848:	eb 1c                	jmp    21866 <__intel_sse2_strtok+0x636>
+   2184a:	66 0f 73 fb 0e       	pslldq $0xe,%xmm3
+   2184f:	66 0f 73 db 0e       	psrldq $0xe,%xmm3
+   21854:	eb 10                	jmp    21866 <__intel_sse2_strtok+0x636>
+   21856:	66 0f 73 fb 0f       	pslldq $0xf,%xmm3
+   2185b:	66 0f 73 db 0f       	psrldq $0xf,%xmm3
+   21860:	eb 04                	jmp    21866 <__intel_sse2_strtok+0x636>
+   21862:	66 0f 6f d9          	movdqa %xmm1,%xmm3
+   21866:	66 0f 74 da          	pcmpeqb %xmm2,%xmm3
+   2186a:	66 0f d7 d3          	pmovmskb %xmm3,%edx
+   2186e:	85 d2                	test   %edx,%edx
+   21870:	0f 84 e6 fc ff ff    	je     2155c <__intel_sse2_strtok+0x32c>
+   21876:	e9 d1 fc ff ff       	jmpq   2154c <__intel_sse2_strtok+0x31c>
+   2187b:	45 0f bc c9          	bsf    %r9d,%r9d
+   2187f:	4d 63 c9             	movslq %r9d,%r9
+   21882:	e9 13 fc ff ff       	jmpq   2149a <__intel_sse2_strtok+0x26a>
+   21887:	48 8b 3d 22 77 22 00 	mov    0x227722(%rip),%rdi        # 248fb0 <g_last_token>
+   2188e:	48 85 ff             	test   %rdi,%rdi
+   21891:	0f 85 f2 f9 ff ff    	jne    21289 <__intel_sse2_strtok+0x59>
+   21897:	33 ff                	xor    %edi,%edi
+   21899:	e8 28 2f 00 00       	callq  247c6 <strtok>
+   2189e:	0f 10 b4 24 90 00 00 	movups 0x90(%rsp),%xmm6
+   218a5:	00 
+   218a6:	0f 10 7c 24 60       	movups 0x60(%rsp),%xmm7
+   218ab:	44 0f 10 44 24 50    	movups 0x50(%rsp),%xmm8
+   218b1:	44 0f 10 4c 24 40    	movups 0x40(%rsp),%xmm9
+   218b7:	44 0f 10 54 24 30    	movups 0x30(%rsp),%xmm10
+   218bd:	44 0f 10 5c 24 20    	movups 0x20(%rsp),%xmm11
+   218c3:	44 0f 10 24 24       	movups (%rsp),%xmm12
+   218c8:	44 0f 10 6c 24 10    	movups 0x10(%rsp),%xmm13
+   218ce:	44 0f 10 b4 24 80 00 	movups 0x80(%rsp),%xmm14
+   218d5:	00 00 
+   218d7:	44 0f 10 7c 24 70    	movups 0x70(%rsp),%xmm15
+   218dd:	48 81 c4 a8 00 00 00 	add    $0xa8,%rsp
+   218e4:	c3                   	retq   
+   218e5:	0f 1f 40 00          	nopl   0x0(%rax)
+   218e9:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+
