@@ -1,0 +1,388 @@
+00000000001595d0 <oe_shm_malloc>:
+  1595d0:	55                   	push   %rbp
+  1595d1:	48 89 e5             	mov    %rsp,%rbp
+  1595d4:	48 81 ec 70 01 00 00 	sub    $0x170,%rsp
+  1595db:	48 c7 c0 ff ff ff ff 	mov    $0xffffffffffffffff,%rax
+  1595e2:	48 89 e1             	mov    %rsp,%rcx
+  1595e5:	48 c1 f9 3f          	sar    $0x3f,%rcx
+  1595e9:	48 89 7d f0          	mov    %rdi,-0x10(%rbp)
+  1595ed:	c7 45 ec 07 00 00 00 	movl   $0x7,-0x14(%rbp)
+  1595f4:	48 c7 45 e0 00 00 00 	movq   $0x0,-0x20(%rbp)
+  1595fb:	00 
+  1595fc:	64 48 8b 3c 25 d0 ff 	mov    %fs:0xffffffffffffffd0,%rdi
+  159603:	ff ff 
+  159605:	48 83 ff 00          	cmp    $0x0,%rdi
+  159609:	48 89 45 b0          	mov    %rax,-0x50(%rbp)
+  15960d:	48 89 4d a8          	mov    %rcx,-0x58(%rbp)
+  159611:	0f 85 05 00 00 00    	jne    15961c <oe_shm_malloc+0x4c>
+  159617:	e9 15 00 00 00       	jmpq   159631 <oe_shm_malloc+0x61>
+  15961c:	48 8b 45 a8          	mov    -0x58(%rbp),%rax
+  159620:	48 8b 4d b0          	mov    -0x50(%rbp),%rcx
+  159624:	48 0f 44 c1          	cmove  %rcx,%rax
+  159628:	48 89 45 a0          	mov    %rax,-0x60(%rbp)
+  15962c:	e9 cd 01 00 00       	jmpq   1597fe <oe_shm_malloc+0x22e>
+  159631:	48 8b 45 a8          	mov    -0x58(%rbp),%rax
+  159635:	48 8b 4d b0          	mov    -0x50(%rbp),%rcx
+  159639:	48 0f 45 c1          	cmovne %rcx,%rax
+  15963d:	48 8b 3d 64 1e 24 00 	mov    0x241e64(%rip),%rdi        # 39b4a8 <capacity>
+  159644:	48 c1 e0 2f          	shl    $0x2f,%rax
+  159648:	48 09 c4             	or     %rax,%rsp
+  15964b:	e8 b0 c4 00 00       	callq  165b00 <oe_reserve_shm>
+  159650:	48 89 e1             	mov    %rsp,%rcx
+  159653:	48 c1 f9 3f          	sar    $0x3f,%rcx
+  159657:	48 89 45 d8          	mov    %rax,-0x28(%rbp)
+  15965b:	48 83 7d d8 00       	cmpq   $0x0,-0x28(%rbp)
+  159660:	48 89 4d 98          	mov    %rcx,-0x68(%rbp)
+  159664:	0f 85 e5 00 00 00    	jne    15974f <oe_shm_malloc+0x17f>
+  15966a:	48 8b 45 98          	mov    -0x68(%rbp),%rax
+  15966e:	48 8b 4d b0          	mov    -0x50(%rbp),%rcx
+  159672:	48 0f 45 c1          	cmovne %rcx,%rax
+  159676:	48 89 45 90          	mov    %rax,-0x70(%rbp)
+  15967a:	e9 00 00 00 00       	jmpq   15967f <oe_shm_malloc+0xaf>
+  15967f:	c7 45 ec 05 00 00 00 	movl   $0x5,-0x14(%rbp)
+  159686:	83 7d ec 00          	cmpl   $0x0,-0x14(%rbp)
+  15968a:	0f 84 05 00 00 00    	je     159695 <oe_shm_malloc+0xc5>
+  159690:	e9 15 00 00 00       	jmpq   1596aa <oe_shm_malloc+0xda>
+  159695:	48 8b 45 90          	mov    -0x70(%rbp),%rax
+  159699:	48 8b 4d b0          	mov    -0x50(%rbp),%rcx
+  15969d:	48 0f 45 c1          	cmovne %rcx,%rax
+  1596a1:	48 89 45 88          	mov    %rax,-0x78(%rbp)
+  1596a5:	e9 95 00 00 00       	jmpq   15973f <oe_shm_malloc+0x16f>
+  1596aa:	48 8b 45 90          	mov    -0x70(%rbp),%rax
+  1596ae:	48 8b 4d b0          	mov    -0x50(%rbp),%rcx
+  1596b2:	48 0f 44 c1          	cmove  %rcx,%rax
+  1596b6:	48 89 45 80          	mov    %rax,-0x80(%rbp)
+  1596ba:	e9 00 00 00 00       	jmpq   1596bf <oe_shm_malloc+0xef>
+  1596bf:	8b 7d ec             	mov    -0x14(%rbp),%edi
+  1596c2:	48 8b 45 80          	mov    -0x80(%rbp),%rax
+  1596c6:	48 c1 e0 2f          	shl    $0x2f,%rax
+  1596ca:	48 09 c4             	or     %rax,%rsp
+  1596cd:	e8 de f6 ff ff       	callq  158db0 <oe_result_str>
+  1596d2:	48 89 e1             	mov    %rsp,%rcx
+  1596d5:	48 c1 f9 3f          	sar    $0x3f,%rcx
+  1596d9:	bf 02 00 00 00       	mov    $0x2,%edi
+  1596de:	48 8d 35 8b e8 01 00 	lea    0x1e88b(%rip),%rsi        # 177f70 <oe_int64_to_decstr+0x2b0>
+  1596e5:	48 89 c2             	mov    %rax,%rdx
+  1596e8:	48 8d 05 12 d0 02 00 	lea    0x2d012(%rip),%rax        # 186701 <__month_to_secs.secs_through_month+0x1db1>
+  1596ef:	48 89 8d 78 ff ff ff 	mov    %rcx,-0x88(%rbp)
+  1596f6:	48 89 c1             	mov    %rax,%rcx
+  1596f9:	4c 8d 05 34 d0 02 00 	lea    0x2d034(%rip),%r8        # 186734 <__month_to_secs.secs_through_month+0x1de4>
+  159700:	41 b9 30 00 00 00    	mov    $0x30,%r9d
+  159706:	b0 00                	mov    $0x0,%al
+  159708:	4c 8b 95 78 ff ff ff 	mov    -0x88(%rbp),%r10
+  15970f:	49 c1 e2 2f          	shl    $0x2f,%r10
+  159713:	4c 09 d4             	or     %r10,%rsp
+  159716:	e8 e5 6c 00 00       	callq  160400 <oe_log>
+  15971b:	48 89 e1             	mov    %rsp,%rcx
+  15971e:	48 c1 f9 3f          	sar    $0x3f,%rcx
+  159722:	48 89 8d 70 ff ff ff 	mov    %rcx,-0x90(%rbp)
+  159729:	89 85 6c ff ff ff    	mov    %eax,-0x94(%rbp)
+  15972f:	48 8b 85 70 ff ff ff 	mov    -0x90(%rbp),%rax
+  159736:	48 89 45 88          	mov    %rax,-0x78(%rbp)
+  15973a:	e9 00 00 00 00       	jmpq   15973f <oe_shm_malloc+0x16f>
+  15973f:	48 8b 45 88          	mov    -0x78(%rbp),%rax
+  159743:	48 89 85 60 ff ff ff 	mov    %rax,-0xa0(%rbp)
+  15974a:	e9 cc 04 00 00       	jmpq   159c1b <oe_shm_malloc+0x64b>
+  15974f:	48 8b 45 98          	mov    -0x68(%rbp),%rax
+  159753:	48 8b 4d b0          	mov    -0x50(%rbp),%rcx
+  159757:	48 0f 44 c1          	cmove  %rcx,%rax
+  15975b:	48 8b 55 d8          	mov    -0x28(%rbp),%rdx
+  15975f:	64 48 89 14 25 d0 ff 	mov    %rdx,%fs:0xffffffffffffffd0
+  159766:	ff ff 
+  159768:	64 48 8b 14 25 00 00 	mov    %fs:0x0,%rdx
+  15976f:	00 00 
+  159771:	48 8d 92 d0 ff ff ff 	lea    -0x30(%rdx),%rdx
+  159778:	48 8b 35 29 1d 24 00 	mov    0x241d29(%rip),%rsi        # 39b4a8 <capacity>
+  15977f:	64 48 89 34 25 d8 ff 	mov    %rsi,%fs:0xffffffffffffffd8
+  159786:	ff ff 
+  159788:	64 48 c7 04 25 e0 ff 	movq   $0x0,%fs:0xffffffffffffffe0
+  15978f:	ff ff 00 00 00 00 
+  159795:	48 8d 3d 44 5e 24 00 	lea    0x245e44(%rip),%rdi        # 39f5e0 <_shm_list_lock>
+  15979c:	48 c1 e0 2f          	shl    $0x2f,%rax
+  1597a0:	48 09 c4             	or     %rax,%rsp
+  1597a3:	48 89 95 58 ff ff ff 	mov    %rdx,-0xa8(%rbp)
+  1597aa:	e8 41 91 01 00       	callq  1728f0 <oe_spin_lock>
+  1597af:	48 89 e1             	mov    %rsp,%rcx
+  1597b2:	48 c1 f9 3f          	sar    $0x3f,%rcx
+  1597b6:	48 8b 15 1b 5e 24 00 	mov    0x245e1b(%rip),%rdx        # 39f5d8 <_shm_list>
+  1597bd:	64 48 89 14 25 e8 ff 	mov    %rdx,%fs:0xffffffffffffffe8
+  1597c4:	ff ff 
+  1597c6:	48 8b 95 58 ff ff ff 	mov    -0xa8(%rbp),%rdx
+  1597cd:	48 89 15 04 5e 24 00 	mov    %rdx,0x245e04(%rip)        # 39f5d8 <_shm_list>
+  1597d4:	48 8d 3d 05 5e 24 00 	lea    0x245e05(%rip),%rdi        # 39f5e0 <_shm_list_lock>
+  1597db:	48 c1 e1 2f          	shl    $0x2f,%rcx
+  1597df:	48 09 cc             	or     %rcx,%rsp
+  1597e2:	89 85 54 ff ff ff    	mov    %eax,-0xac(%rbp)
+  1597e8:	e8 63 92 01 00       	callq  172a50 <oe_spin_unlock>
+  1597ed:	48 89 e1             	mov    %rsp,%rcx
+  1597f0:	48 c1 f9 3f          	sar    $0x3f,%rcx
+  1597f4:	89 85 50 ff ff ff    	mov    %eax,-0xb0(%rbp)
+  1597fa:	48 89 4d a0          	mov    %rcx,-0x60(%rbp)
+  1597fe:	48 8b 45 a0          	mov    -0x60(%rbp),%rax
+  159802:	b9 08 00 00 00       	mov    $0x8,%ecx
+  159807:	89 ce                	mov    %ecx,%esi
+  159809:	48 8b 7d f0          	mov    -0x10(%rbp),%rdi
+  15980d:	48 c1 e0 2f          	shl    $0x2f,%rax
+  159811:	48 09 c4             	or     %rax,%rsp
+  159814:	e8 47 04 00 00       	callq  159c60 <oe_round_up_to_multiple>
+  159819:	48 89 e6             	mov    %rsp,%rsi
+  15981c:	48 c1 fe 3f          	sar    $0x3f,%rsi
+  159820:	48 89 45 e0          	mov    %rax,-0x20(%rbp)
+  159824:	48 89 b5 48 ff ff ff 	mov    %rsi,-0xb8(%rbp)
+  15982b:	48 8b 45 e0          	mov    -0x20(%rbp),%rax
+  15982f:	48 3b 45 f0          	cmp    -0x10(%rbp),%rax
+  159833:	0f 92 c1             	setb   %cl
+  159836:	80 e1 01             	and    $0x1,%cl
+  159839:	0f b6 d1             	movzbl %cl,%edx
+  15983c:	89 55 d4             	mov    %edx,-0x2c(%rbp)
+  15983f:	83 7d d4 00          	cmpl   $0x0,-0x2c(%rbp)
+  159843:	0f 84 ff 00 00 00    	je     159948 <oe_shm_malloc+0x378>
+  159849:	48 8b 85 48 ff ff ff 	mov    -0xb8(%rbp),%rax
+  159850:	48 8b 4d b0          	mov    -0x50(%rbp),%rcx
+  159854:	48 0f 44 c1          	cmove  %rcx,%rax
+  159858:	48 89 85 40 ff ff ff 	mov    %rax,-0xc0(%rbp)
+  15985f:	e9 00 00 00 00       	jmpq   159864 <oe_shm_malloc+0x294>
+  159864:	8b 45 d4             	mov    -0x2c(%rbp),%eax
+  159867:	89 45 ec             	mov    %eax,-0x14(%rbp)
+  15986a:	83 7d ec 00          	cmpl   $0x0,-0x14(%rbp)
+  15986e:	0f 84 05 00 00 00    	je     159879 <oe_shm_malloc+0x2a9>
+  159874:	e9 1b 00 00 00       	jmpq   159894 <oe_shm_malloc+0x2c4>
+  159879:	48 8b 85 40 ff ff ff 	mov    -0xc0(%rbp),%rax
+  159880:	48 8b 4d b0          	mov    -0x50(%rbp),%rcx
+  159884:	48 0f 45 c1          	cmovne %rcx,%rax
+  159888:	48 89 85 38 ff ff ff 	mov    %rax,-0xc8(%rbp)
+  15988f:	e9 a1 00 00 00       	jmpq   159935 <oe_shm_malloc+0x365>
+  159894:	48 8b 85 40 ff ff ff 	mov    -0xc0(%rbp),%rax
+  15989b:	48 8b 4d b0          	mov    -0x50(%rbp),%rcx
+  15989f:	48 0f 44 c1          	cmove  %rcx,%rax
+  1598a3:	48 89 85 30 ff ff ff 	mov    %rax,-0xd0(%rbp)
+  1598aa:	e9 00 00 00 00       	jmpq   1598af <oe_shm_malloc+0x2df>
+  1598af:	8b 7d ec             	mov    -0x14(%rbp),%edi
+  1598b2:	48 8b 85 30 ff ff ff 	mov    -0xd0(%rbp),%rax
+  1598b9:	48 c1 e0 2f          	shl    $0x2f,%rax
+  1598bd:	48 09 c4             	or     %rax,%rsp
+  1598c0:	e8 eb f4 ff ff       	callq  158db0 <oe_result_str>
+  1598c5:	48 89 e1             	mov    %rsp,%rcx
+  1598c8:	48 c1 f9 3f          	sar    $0x3f,%rcx
+  1598cc:	bf 02 00 00 00       	mov    $0x2,%edi
+  1598d1:	48 8d 35 98 e6 01 00 	lea    0x1e698(%rip),%rsi        # 177f70 <oe_int64_to_decstr+0x2b0>
+  1598d8:	48 89 c2             	mov    %rax,%rdx
+  1598db:	48 8d 05 1f ce 02 00 	lea    0x2ce1f(%rip),%rax        # 186701 <__month_to_secs.secs_through_month+0x1db1>
+  1598e2:	48 89 8d 28 ff ff ff 	mov    %rcx,-0xd8(%rbp)
+  1598e9:	48 89 c1             	mov    %rax,%rcx
+  1598ec:	4c 8d 05 41 ce 02 00 	lea    0x2ce41(%rip),%r8        # 186734 <__month_to_secs.secs_through_month+0x1de4>
+  1598f3:	41 b9 40 00 00 00    	mov    $0x40,%r9d
+  1598f9:	b0 00                	mov    $0x0,%al
+  1598fb:	4c 8b 95 28 ff ff ff 	mov    -0xd8(%rbp),%r10
+  159902:	49 c1 e2 2f          	shl    $0x2f,%r10
+  159906:	4c 09 d4             	or     %r10,%rsp
+  159909:	e8 f2 6a 00 00       	callq  160400 <oe_log>
+  15990e:	48 89 e1             	mov    %rsp,%rcx
+  159911:	48 c1 f9 3f          	sar    $0x3f,%rcx
+  159915:	48 89 8d 20 ff ff ff 	mov    %rcx,-0xe0(%rbp)
+  15991c:	89 85 1c ff ff ff    	mov    %eax,-0xe4(%rbp)
+  159922:	48 8b 85 20 ff ff ff 	mov    -0xe0(%rbp),%rax
+  159929:	48 89 85 38 ff ff ff 	mov    %rax,-0xc8(%rbp)
+  159930:	e9 00 00 00 00       	jmpq   159935 <oe_shm_malloc+0x365>
+  159935:	48 8b 85 38 ff ff ff 	mov    -0xc8(%rbp),%rax
+  15993c:	48 89 85 60 ff ff ff 	mov    %rax,-0xa0(%rbp)
+  159943:	e9 d3 02 00 00       	jmpq   159c1b <oe_shm_malloc+0x64b>
+  159948:	48 8b 85 48 ff ff ff 	mov    -0xb8(%rbp),%rax
+  15994f:	48 8b 4d b0          	mov    -0x50(%rbp),%rcx
+  159953:	48 0f 45 c1          	cmovne %rcx,%rax
+  159957:	48 89 85 10 ff ff ff 	mov    %rax,-0xf0(%rbp)
+  15995e:	e9 00 00 00 00       	jmpq   159963 <oe_shm_malloc+0x393>
+  159963:	64 48 8b 3c 25 e0 ff 	mov    %fs:0xffffffffffffffe0,%rdi
+  15996a:	ff ff 
+  15996c:	48 8b 75 e0          	mov    -0x20(%rbp),%rsi
+  159970:	48 8d 55 c8          	lea    -0x38(%rbp),%rdx
+  159974:	48 8b 85 10 ff ff ff 	mov    -0xf0(%rbp),%rax
+  15997b:	48 c1 e0 2f          	shl    $0x2f,%rax
+  15997f:	48 09 c4             	or     %rax,%rsp
+  159982:	e8 29 03 00 00       	callq  159cb0 <oe_safe_add_sizet>
+  159987:	48 89 e2             	mov    %rsp,%rdx
+  15998a:	48 c1 fa 3f          	sar    $0x3f,%rdx
+  15998e:	89 45 c4             	mov    %eax,-0x3c(%rbp)
+  159991:	83 7d c4 00          	cmpl   $0x0,-0x3c(%rbp)
+  159995:	48 89 95 08 ff ff ff 	mov    %rdx,-0xf8(%rbp)
+  15999c:	0f 84 ff 00 00 00    	je     159aa1 <oe_shm_malloc+0x4d1>
+  1599a2:	48 8b 85 08 ff ff ff 	mov    -0xf8(%rbp),%rax
+  1599a9:	48 8b 4d b0          	mov    -0x50(%rbp),%rcx
+  1599ad:	48 0f 44 c1          	cmove  %rcx,%rax
+  1599b1:	48 89 85 00 ff ff ff 	mov    %rax,-0x100(%rbp)
+  1599b8:	e9 00 00 00 00       	jmpq   1599bd <oe_shm_malloc+0x3ed>
+  1599bd:	8b 45 c4             	mov    -0x3c(%rbp),%eax
+  1599c0:	89 45 ec             	mov    %eax,-0x14(%rbp)
+  1599c3:	83 7d ec 00          	cmpl   $0x0,-0x14(%rbp)
+  1599c7:	0f 84 05 00 00 00    	je     1599d2 <oe_shm_malloc+0x402>
+  1599cd:	e9 1b 00 00 00       	jmpq   1599ed <oe_shm_malloc+0x41d>
+  1599d2:	48 8b 85 00 ff ff ff 	mov    -0x100(%rbp),%rax
+  1599d9:	48 8b 4d b0          	mov    -0x50(%rbp),%rcx
+  1599dd:	48 0f 45 c1          	cmovne %rcx,%rax
+  1599e1:	48 89 85 f8 fe ff ff 	mov    %rax,-0x108(%rbp)
+  1599e8:	e9 a1 00 00 00       	jmpq   159a8e <oe_shm_malloc+0x4be>
+  1599ed:	48 8b 85 00 ff ff ff 	mov    -0x100(%rbp),%rax
+  1599f4:	48 8b 4d b0          	mov    -0x50(%rbp),%rcx
+  1599f8:	48 0f 44 c1          	cmove  %rcx,%rax
+  1599fc:	48 89 85 f0 fe ff ff 	mov    %rax,-0x110(%rbp)
+  159a03:	e9 00 00 00 00       	jmpq   159a08 <oe_shm_malloc+0x438>
+  159a08:	8b 7d ec             	mov    -0x14(%rbp),%edi
+  159a0b:	48 8b 85 f0 fe ff ff 	mov    -0x110(%rbp),%rax
+  159a12:	48 c1 e0 2f          	shl    $0x2f,%rax
+  159a16:	48 09 c4             	or     %rax,%rsp
+  159a19:	e8 92 f3 ff ff       	callq  158db0 <oe_result_str>
+  159a1e:	48 89 e1             	mov    %rsp,%rcx
+  159a21:	48 c1 f9 3f          	sar    $0x3f,%rcx
+  159a25:	bf 02 00 00 00       	mov    $0x2,%edi
+  159a2a:	48 8d 35 3f e5 01 00 	lea    0x1e53f(%rip),%rsi        # 177f70 <oe_int64_to_decstr+0x2b0>
+  159a31:	48 89 c2             	mov    %rax,%rdx
+  159a34:	48 8d 05 c6 cc 02 00 	lea    0x2ccc6(%rip),%rax        # 186701 <__month_to_secs.secs_through_month+0x1db1>
+  159a3b:	48 89 8d e8 fe ff ff 	mov    %rcx,-0x118(%rbp)
+  159a42:	48 89 c1             	mov    %rax,%rcx
+  159a45:	4c 8d 05 e8 cc 02 00 	lea    0x2cce8(%rip),%r8        # 186734 <__month_to_secs.secs_through_month+0x1de4>
+  159a4c:	41 b9 44 00 00 00    	mov    $0x44,%r9d
+  159a52:	b0 00                	mov    $0x0,%al
+  159a54:	4c 8b 95 e8 fe ff ff 	mov    -0x118(%rbp),%r10
+  159a5b:	49 c1 e2 2f          	shl    $0x2f,%r10
+  159a5f:	4c 09 d4             	or     %r10,%rsp
+  159a62:	e8 99 69 00 00       	callq  160400 <oe_log>
+  159a67:	48 89 e1             	mov    %rsp,%rcx
+  159a6a:	48 c1 f9 3f          	sar    $0x3f,%rcx
+  159a6e:	48 89 8d e0 fe ff ff 	mov    %rcx,-0x120(%rbp)
+  159a75:	89 85 dc fe ff ff    	mov    %eax,-0x124(%rbp)
+  159a7b:	48 8b 85 e0 fe ff ff 	mov    -0x120(%rbp),%rax
+  159a82:	48 89 85 f8 fe ff ff 	mov    %rax,-0x108(%rbp)
+  159a89:	e9 00 00 00 00       	jmpq   159a8e <oe_shm_malloc+0x4be>
+  159a8e:	48 8b 85 f8 fe ff ff 	mov    -0x108(%rbp),%rax
+  159a95:	48 89 85 60 ff ff ff 	mov    %rax,-0xa0(%rbp)
+  159a9c:	e9 7a 01 00 00       	jmpq   159c1b <oe_shm_malloc+0x64b>
+  159aa1:	48 8b 85 08 ff ff ff 	mov    -0xf8(%rbp),%rax
+  159aa8:	48 8b 4d b0          	mov    -0x50(%rbp),%rcx
+  159aac:	48 0f 45 c1          	cmovne %rcx,%rax
+  159ab0:	48 89 85 d0 fe ff ff 	mov    %rax,-0x130(%rbp)
+  159ab7:	e9 00 00 00 00       	jmpq   159abc <oe_shm_malloc+0x4ec>
+  159abc:	48 8b 45 c8          	mov    -0x38(%rbp),%rax
+  159ac0:	64 48 8b 0c 25 d8 ff 	mov    %fs:0xffffffffffffffd8,%rcx
+  159ac7:	ff ff 
+  159ac9:	48 39 c8             	cmp    %rcx,%rax
+  159acc:	0f 87 49 00 00 00    	ja     159b1b <oe_shm_malloc+0x54b>
+  159ad2:	48 8b 85 d0 fe ff ff 	mov    -0x130(%rbp),%rax
+  159ad9:	48 8b 4d b0          	mov    -0x50(%rbp),%rcx
+  159add:	48 0f 47 c1          	cmova  %rcx,%rax
+  159ae1:	64 48 8b 14 25 d0 ff 	mov    %fs:0xffffffffffffffd0,%rdx
+  159ae8:	ff ff 
+  159aea:	64 48 8b 34 25 e0 ff 	mov    %fs:0xffffffffffffffe0,%rsi
+  159af1:	ff ff 
+  159af3:	48 01 f2             	add    %rsi,%rdx
+  159af6:	48 89 55 b8          	mov    %rdx,-0x48(%rbp)
+  159afa:	48 8b 55 c8          	mov    -0x38(%rbp),%rdx
+  159afe:	64 48 89 14 25 e0 ff 	mov    %rdx,%fs:0xffffffffffffffe0
+  159b05:	ff ff 
+  159b07:	48 8b 55 b8          	mov    -0x48(%rbp),%rdx
+  159b0b:	48 89 55 f8          	mov    %rdx,-0x8(%rbp)
+  159b0f:	48 89 85 c8 fe ff ff 	mov    %rax,-0x138(%rbp)
+  159b16:	e9 16 01 00 00       	jmpq   159c31 <oe_shm_malloc+0x661>
+  159b1b:	48 8b 85 d0 fe ff ff 	mov    -0x130(%rbp),%rax
+  159b22:	48 8b 4d b0          	mov    -0x50(%rbp),%rcx
+  159b26:	48 0f 46 c1          	cmovbe %rcx,%rax
+  159b2a:	48 89 85 c0 fe ff ff 	mov    %rax,-0x140(%rbp)
+  159b31:	e9 00 00 00 00       	jmpq   159b36 <oe_shm_malloc+0x566>
+  159b36:	c7 45 ec 05 00 00 00 	movl   $0x5,-0x14(%rbp)
+  159b3d:	83 7d ec 00          	cmpl   $0x0,-0x14(%rbp)
+  159b41:	0f 84 05 00 00 00    	je     159b4c <oe_shm_malloc+0x57c>
+  159b47:	e9 1b 00 00 00       	jmpq   159b67 <oe_shm_malloc+0x597>
+  159b4c:	48 8b 85 c0 fe ff ff 	mov    -0x140(%rbp),%rax
+  159b53:	48 8b 4d b0          	mov    -0x50(%rbp),%rcx
+  159b57:	48 0f 45 c1          	cmovne %rcx,%rax
+  159b5b:	48 89 85 b8 fe ff ff 	mov    %rax,-0x148(%rbp)
+  159b62:	e9 a1 00 00 00       	jmpq   159c08 <oe_shm_malloc+0x638>
+  159b67:	48 8b 85 c0 fe ff ff 	mov    -0x140(%rbp),%rax
+  159b6e:	48 8b 4d b0          	mov    -0x50(%rbp),%rcx
+  159b72:	48 0f 44 c1          	cmove  %rcx,%rax
+  159b76:	48 89 85 b0 fe ff ff 	mov    %rax,-0x150(%rbp)
+  159b7d:	e9 00 00 00 00       	jmpq   159b82 <oe_shm_malloc+0x5b2>
+  159b82:	8b 7d ec             	mov    -0x14(%rbp),%edi
+  159b85:	48 8b 85 b0 fe ff ff 	mov    -0x150(%rbp),%rax
+  159b8c:	48 c1 e0 2f          	shl    $0x2f,%rax
+  159b90:	48 09 c4             	or     %rax,%rsp
+  159b93:	e8 18 f2 ff ff       	callq  158db0 <oe_result_str>
+  159b98:	48 89 e1             	mov    %rsp,%rcx
+  159b9b:	48 c1 f9 3f          	sar    $0x3f,%rcx
+  159b9f:	bf 02 00 00 00       	mov    $0x2,%edi
+  159ba4:	48 8d 35 c5 e3 01 00 	lea    0x1e3c5(%rip),%rsi        # 177f70 <oe_int64_to_decstr+0x2b0>
+  159bab:	48 89 c2             	mov    %rax,%rdx
+  159bae:	48 8d 05 4c cb 02 00 	lea    0x2cb4c(%rip),%rax        # 186701 <__month_to_secs.secs_through_month+0x1db1>
+  159bb5:	48 89 8d a8 fe ff ff 	mov    %rcx,-0x158(%rbp)
+  159bbc:	48 89 c1             	mov    %rax,%rcx
+  159bbf:	4c 8d 05 6e cb 02 00 	lea    0x2cb6e(%rip),%r8        # 186734 <__month_to_secs.secs_through_month+0x1de4>
+  159bc6:	41 b9 4e 00 00 00    	mov    $0x4e,%r9d
+  159bcc:	b0 00                	mov    $0x0,%al
+  159bce:	4c 8b 95 a8 fe ff ff 	mov    -0x158(%rbp),%r10
+  159bd5:	49 c1 e2 2f          	shl    $0x2f,%r10
+  159bd9:	4c 09 d4             	or     %r10,%rsp
+  159bdc:	e8 1f 68 00 00       	callq  160400 <oe_log>
+  159be1:	48 89 e1             	mov    %rsp,%rcx
+  159be4:	48 c1 f9 3f          	sar    $0x3f,%rcx
+  159be8:	48 89 8d a0 fe ff ff 	mov    %rcx,-0x160(%rbp)
+  159bef:	89 85 9c fe ff ff    	mov    %eax,-0x164(%rbp)
+  159bf5:	48 8b 85 a0 fe ff ff 	mov    -0x160(%rbp),%rax
+  159bfc:	48 89 85 b8 fe ff ff 	mov    %rax,-0x148(%rbp)
+  159c03:	e9 00 00 00 00       	jmpq   159c08 <oe_shm_malloc+0x638>
+  159c08:	48 8b 85 b8 fe ff ff 	mov    -0x148(%rbp),%rax
+  159c0f:	48 89 85 60 ff ff ff 	mov    %rax,-0xa0(%rbp)
+  159c16:	e9 00 00 00 00       	jmpq   159c1b <oe_shm_malloc+0x64b>
+  159c1b:	48 8b 85 60 ff ff ff 	mov    -0xa0(%rbp),%rax
+  159c22:	48 c7 45 f8 00 00 00 	movq   $0x0,-0x8(%rbp)
+  159c29:	00 
+  159c2a:	48 89 85 c8 fe ff ff 	mov    %rax,-0x138(%rbp)
+  159c31:	48 8b 85 c8 fe ff ff 	mov    -0x138(%rbp),%rax
+  159c38:	48 8b 4d f8          	mov    -0x8(%rbp),%rcx
+  159c3c:	48 89 85 90 fe ff ff 	mov    %rax,-0x170(%rbp)
+  159c43:	48 89 c8             	mov    %rcx,%rax
+  159c46:	48 8b 8d 90 fe ff ff 	mov    -0x170(%rbp),%rcx
+  159c4d:	48 c1 e1 2f          	shl    $0x2f,%rcx
+  159c51:	48 09 cc             	or     %rcx,%rsp
+  159c54:	48 81 c4 70 01 00 00 	add    $0x170,%rsp
+  159c5b:	5d                   	pop    %rbp
+  159c5c:	c3                   	retq   
+  159c5d:	0f 1f 00             	nopl   (%rax)
+
+
+0000000000159540 <oe_configure_shm_capacity>:
+  159540:	55                   	push   %rbp
+  159541:	48 89 e5             	mov    %rsp,%rbp
+  159544:	48 c7 c0 ff ff ff ff 	mov    $0xffffffffffffffff,%rax
+  15954b:	48 89 e1             	mov    %rsp,%rcx
+  15954e:	48 c1 f9 3f          	sar    $0x3f,%rcx
+  159552:	48 89 7d f0          	mov    %rdi,-0x10(%rbp)
+  159556:	48 8b 7d f0          	mov    -0x10(%rbp),%rdi
+  15955a:	48 3b 3d 4f 1f 24 00 	cmp    0x241f4f(%rip),%rdi        # 39b4b0 <max_capacity>
+  159561:	48 89 45 e8          	mov    %rax,-0x18(%rbp)
+  159565:	48 89 4d e0          	mov    %rcx,-0x20(%rbp)
+  159569:	0f 86 19 00 00 00    	jbe    159588 <oe_configure_shm_capacity+0x48>
+  15956f:	48 8b 45 e0          	mov    -0x20(%rbp),%rax
+  159573:	48 8b 4d e8          	mov    -0x18(%rbp),%rcx
+  159577:	48 0f 46 c1          	cmovbe %rcx,%rax
+  15957b:	c6 45 ff 00          	movb   $0x0,-0x1(%rbp)
+  15957f:	48 89 45 d8          	mov    %rax,-0x28(%rbp)
+  159583:	e9 1f 00 00 00       	jmpq   1595a7 <oe_configure_shm_capacity+0x67>
+  159588:	48 8b 45 e0          	mov    -0x20(%rbp),%rax
+  15958c:	48 8b 4d e8          	mov    -0x18(%rbp),%rcx
+  159590:	48 0f 47 c1          	cmova  %rcx,%rax
+  159594:	48 8b 55 f0          	mov    -0x10(%rbp),%rdx
+  159598:	48 89 15 09 1f 24 00 	mov    %rdx,0x241f09(%rip)        # 39b4a8 <capacity>
+  15959f:	c6 45 ff 01          	movb   $0x1,-0x1(%rbp)
+  1595a3:	48 89 45 d8          	mov    %rax,-0x28(%rbp)
+  1595a7:	48 8b 45 d8          	mov    -0x28(%rbp),%rax
+  1595ab:	8a 4d ff             	mov    -0x1(%rbp),%cl
+  1595ae:	80 e1 01             	and    $0x1,%cl
+  1595b1:	0f b6 d1             	movzbl %cl,%edx
+  1595b4:	48 89 45 d0          	mov    %rax,-0x30(%rbp)
+  1595b8:	89 d0                	mov    %edx,%eax
+  1595ba:	48 8b 75 d0          	mov    -0x30(%rbp),%rsi
+  1595be:	48 c1 e6 2f          	shl    $0x2f,%rsi
+  1595c2:	48 09 f4             	or     %rsi,%rsp
+  1595c5:	5d                   	pop    %rbp
+  1595c6:	c3                   	retq   
+  1595c7:	66 0f 1f 84 00 00 00 	nopw   0x0(%rax,%rax,1)
+  1595ce:	00 00 
