@@ -1,0 +1,107 @@
+000000000014ce90 <oe_set_allocation_failure_callback>:
+  14ce90:	55                   	push   %rbp
+  14ce91:	48 89 e5             	mov    %rsp,%rbp
+  14ce94:	48 c7 c0 ff ff ff ff 	mov    $0xffffffffffffffff,%rax
+  14ce9b:	48 89 e1             	mov    %rsp,%rcx
+  14ce9e:	48 c1 f9 3f          	sar    $0x3f,%rcx
+  14cea2:	48 89 7d f8          	mov    %rdi,-0x8(%rbp)
+  14cea6:	48 8b 7d f8          	mov    -0x8(%rbp),%rdi
+  14ceaa:	48 89 3d c7 26 25 00 	mov    %rdi,0x2526c7(%rip)        # 39f578 <_failure_callback>
+  14ceb1:	48 c1 e1 2f          	shl    $0x2f,%rcx
+  14ceb5:	48 09 cc             	or     %rcx,%rsp
+  14ceb8:	48 89 45 f0          	mov    %rax,-0x10(%rbp)
+  14cebc:	5d                   	pop    %rbp
+  14cebd:	c3                   	retq   
+  14cebe:	66 90                	xchg   %ax,%ax
+
+000000000014cec0 <oe_malloc>:
+  14cec0:	55                   	push   %rbp
+  14cec1:	48 89 e5             	mov    %rsp,%rbp
+  14cec4:	48 83 ec 50          	sub    $0x50,%rsp
+  14cec8:	48 c7 c0 ff ff ff ff 	mov    $0xffffffffffffffff,%rax
+  14cecf:	48 89 e1             	mov    %rsp,%rcx
+  14ced2:	48 c1 f9 3f          	sar    $0x3f,%rcx
+  14ced6:	48 89 7d f8          	mov    %rdi,-0x8(%rbp)
+  14ceda:	48 8b 7d f8          	mov    -0x8(%rbp),%rdi
+  14cede:	48 c1 e1 2f          	shl    $0x2f,%rcx
+  14cee2:	48 09 cc             	or     %rcx,%rsp
+  14cee5:	48 89 45 e8          	mov    %rax,-0x18(%rbp)
+  14cee9:	e8 02 f6 fe ff       	callq  13c4f0 <dlmalloc>
+  14ceee:	48 89 e1             	mov    %rsp,%rcx
+  14cef1:	48 c1 f9 3f          	sar    $0x3f,%rcx
+  14cef5:	48 89 45 f0          	mov    %rax,-0x10(%rbp)
+  14cef9:	48 83 7d f0 00       	cmpq   $0x0,-0x10(%rbp)
+  14cefe:	48 89 4d e0          	mov    %rcx,-0x20(%rbp)
+  14cf02:	0f 85 05 00 00 00    	jne    14cf0d <oe_malloc+0x4d>
+  14cf08:	e9 15 00 00 00       	jmpq   14cf22 <oe_malloc+0x62>
+  14cf0d:	48 8b 45 e0          	mov    -0x20(%rbp),%rax
+  14cf11:	48 8b 4d e8          	mov    -0x18(%rbp),%rcx
+  14cf15:	48 0f 44 c1          	cmove  %rcx,%rax
+  14cf19:	48 89 45 d8          	mov    %rax,-0x28(%rbp)
+  14cf1d:	e9 e5 00 00 00       	jmpq   14d007 <oe_malloc+0x147>
+  14cf22:	48 8b 45 e0          	mov    -0x20(%rbp),%rax
+  14cf26:	48 8b 4d e8          	mov    -0x18(%rbp),%rcx
+  14cf2a:	48 0f 45 c1          	cmovne %rcx,%rax
+  14cf2e:	48 83 7d f8 00       	cmpq   $0x0,-0x8(%rbp)
+  14cf33:	48 89 45 d0          	mov    %rax,-0x30(%rbp)
+  14cf37:	0f 84 05 00 00 00    	je     14cf42 <oe_malloc+0x82>
+  14cf3d:	e9 15 00 00 00       	jmpq   14cf57 <oe_malloc+0x97>
+  14cf42:	48 8b 45 d0          	mov    -0x30(%rbp),%rax
+  14cf46:	48 8b 4d e8          	mov    -0x18(%rbp),%rcx
+  14cf4a:	48 0f 45 c1          	cmovne %rcx,%rax
+  14cf4e:	48 89 45 d8          	mov    %rax,-0x28(%rbp)
+  14cf52:	e9 b0 00 00 00       	jmpq   14d007 <oe_malloc+0x147>
+  14cf57:	48 8b 45 d0          	mov    -0x30(%rbp),%rax
+  14cf5b:	48 8b 4d e8          	mov    -0x18(%rbp),%rcx
+  14cf5f:	48 0f 44 c1          	cmove  %rcx,%rax
+  14cf63:	48 c1 e0 2f          	shl    $0x2f,%rax
+  14cf67:	48 09 c4             	or     %rax,%rsp
+  14cf6a:	e8 11 e1 fe ff       	callq  13b080 <__oe_errno_location>
+  14cf6f:	48 89 e1             	mov    %rsp,%rcx
+  14cf72:	48 c1 f9 3f          	sar    $0x3f,%rcx
+  14cf76:	c7 00 0c 00 00 00    	movl   $0xc,(%rax)
+  14cf7c:	48 83 3d f4 25 25 00 	cmpq   $0x0,0x2525f4(%rip)        # 39f578 <_failure_callback>
+  14cf83:	00 
+  14cf84:	48 89 4d c8          	mov    %rcx,-0x38(%rbp)
+  14cf88:	0f 84 05 00 00 00    	je     14cf93 <oe_malloc+0xd3>
+  14cf8e:	e9 15 00 00 00       	jmpq   14cfa8 <oe_malloc+0xe8>
+  14cf93:	48 8b 45 c8          	mov    -0x38(%rbp),%rax
+  14cf97:	48 8b 4d e8          	mov    -0x18(%rbp),%rcx
+  14cf9b:	48 0f 45 c1          	cmovne %rcx,%rax
+  14cf9f:	48 89 45 c0          	mov    %rax,-0x40(%rbp)
+  14cfa3:	e9 52 00 00 00       	jmpq   14cffa <oe_malloc+0x13a>
+  14cfa8:	48 8b 45 c8          	mov    -0x38(%rbp),%rax
+  14cfac:	48 8b 4d e8          	mov    -0x18(%rbp),%rcx
+  14cfb0:	48 0f 44 c1          	cmove  %rcx,%rax
+  14cfb4:	ba 50 00 00 00       	mov    $0x50,%edx
+  14cfb9:	89 d6                	mov    %edx,%esi
+  14cfbb:	48 8b 3d b6 25 25 00 	mov    0x2525b6(%rip),%rdi        # 39f578 <_failure_callback>
+  14cfc2:	48 8b 4d f8          	mov    -0x8(%rbp),%rcx
+  14cfc6:	4c 8d 05 c9 8e 03 00 	lea    0x38ec9(%rip),%r8        # 185e96 <__month_to_secs.secs_through_month+0x1546>
+  14cfcd:	48 89 7d b8          	mov    %rdi,-0x48(%rbp)
+  14cfd1:	4c 89 c7             	mov    %r8,%rdi
+  14cfd4:	48 8d 15 f1 8e 03 00 	lea    0x38ef1(%rip),%rdx        # 185ecc <__month_to_secs.secs_through_month+0x157c>
+  14cfdb:	49 89 c0             	mov    %rax,%r8
+  14cfde:	4c 8b 4d b8          	mov    -0x48(%rbp),%r9
+  14cfe2:	4d 09 c8             	or     %r9,%r8
+  14cfe5:	48 c1 e0 2f          	shl    $0x2f,%rax
+  14cfe9:	48 09 c4             	or     %rax,%rsp
+  14cfec:	41 ff d0             	callq  *%r8
+  14cfef:	48 89 e0             	mov    %rsp,%rax
+  14cff2:	48 c1 f8 3f          	sar    $0x3f,%rax
+  14cff6:	48 89 45 c0          	mov    %rax,-0x40(%rbp)
+  14cffa:	48 8b 45 c0          	mov    -0x40(%rbp),%rax
+  14cffe:	48 89 45 d8          	mov    %rax,-0x28(%rbp)
+  14d002:	e9 00 00 00 00       	jmpq   14d007 <oe_malloc+0x147>
+  14d007:	48 8b 45 d8          	mov    -0x28(%rbp),%rax
+  14d00b:	48 8b 4d f0          	mov    -0x10(%rbp),%rcx
+  14d00f:	48 89 45 b0          	mov    %rax,-0x50(%rbp)
+  14d013:	48 89 c8             	mov    %rcx,%rax
+  14d016:	48 8b 4d b0          	mov    -0x50(%rbp),%rcx
+  14d01a:	48 c1 e1 2f          	shl    $0x2f,%rcx
+  14d01e:	48 09 cc             	or     %rcx,%rsp
+  14d021:	48 83 c4 50          	add    $0x50,%rsp
+  14d025:	5d                   	pop    %rbp
+  14d026:	c3                   	retq   
+  14d027:	66 0f 1f 84 00 00 00 	nopw   0x0(%rax,%rax,1)
+  14d02e:	00 00 

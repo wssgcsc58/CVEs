@@ -8,4 +8,4 @@ cmake ..
 make run
 ```
 
-The data race will trigger rand function in open enclave sdk to return a constant value, derandomizing it and causing a potential denial of service, replay attack and data corruption.
+The data race will trigger the second thread calling an overwritten callback which is unexpected, shown in result.png, which potentially causing denial of service and data corruption.
