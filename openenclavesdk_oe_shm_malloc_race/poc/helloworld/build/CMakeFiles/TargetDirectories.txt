@@ -1,0 +1,11 @@
+/home/sanchuan/pg/a/openenclave/samples/helloworld/build/CMakeFiles/rebuild_cache.dir
+/home/sanchuan/pg/a/openenclave/samples/helloworld/build/CMakeFiles/sign.dir
+/home/sanchuan/pg/a/openenclave/samples/helloworld/build/CMakeFiles/run.dir
+/home/sanchuan/pg/a/openenclave/samples/helloworld/build/CMakeFiles/simulate.dir
+/home/sanchuan/pg/a/openenclave/samples/helloworld/build/CMakeFiles/edit_cache.dir
+/home/sanchuan/pg/a/openenclave/samples/helloworld/build/enclave/CMakeFiles/edit_cache.dir
+/home/sanchuan/pg/a/openenclave/samples/helloworld/build/enclave/CMakeFiles/rebuild_cache.dir
+/home/sanchuan/pg/a/openenclave/samples/helloworld/build/enclave/CMakeFiles/enclave.dir
+/home/sanchuan/pg/a/openenclave/samples/helloworld/build/host/CMakeFiles/edit_cache.dir
+/home/sanchuan/pg/a/openenclave/samples/helloworld/build/host/CMakeFiles/rebuild_cache.dir
+/home/sanchuan/pg/a/openenclave/samples/helloworld/build/host/CMakeFiles/helloworld_host.dir
