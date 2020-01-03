@@ -1,0 +1,43 @@
+00000000000f1920 <srand>:
+   f1920:	55                   	push   %rbp
+   f1921:	48 89 e5             	mov    %rsp,%rbp
+   f1924:	48 c7 c0 ff ff ff ff 	mov    $0xffffffffffffffff,%rax
+   f192b:	48 89 e1             	mov    %rsp,%rcx
+   f192e:	48 c1 f9 3f          	sar    $0x3f,%rcx
+   f1932:	89 7d fc             	mov    %edi,-0x4(%rbp)
+   f1935:	8b 7d fc             	mov    -0x4(%rbp),%edi
+   f1938:	83 ef 01             	sub    $0x1,%edi
+   f193b:	89 ff                	mov    %edi,%edi
+   f193d:	89 fa                	mov    %edi,%edx
+   f193f:	48 89 15 ba ce 2a 00 	mov    %rdx,0x2aceba(%rip)        # 39e800 <seed>
+   f1946:	48 c1 e1 2f          	shl    $0x2f,%rcx
+   f194a:	48 09 cc             	or     %rcx,%rsp
+   f194d:	48 89 45 f0          	mov    %rax,-0x10(%rbp)
+   f1951:	5d                   	pop    %rbp
+   f1952:	c3                   	retq   
+   f1953:	66 2e 0f 1f 84 00 00 	nopw   %cs:0x0(%rax,%rax,1)
+   f195a:	00 00 00 
+   f195d:	0f 1f 00             	nopl   (%rax)
+
+00000000000f1960 <rand>:
+   f1960:	55                   	push   %rbp
+   f1961:	48 89 e5             	mov    %rsp,%rbp
+   f1964:	48 c7 c0 ff ff ff ff 	mov    $0xffffffffffffffff,%rax
+   f196b:	48 89 e1             	mov    %rsp,%rcx
+   f196e:	48 c1 f9 3f          	sar    $0x3f,%rcx
+   f1972:	48 ba 2d 7f 95 4c 2d 	movabs $0x5851f42d4c957f2d,%rdx
+   f1979:	f4 51 58 
+   f197c:	48 0f af 15 7c ce 2a 	imul   0x2ace7c(%rip),%rdx        # 39e800 <seed>
+   f1983:	00 
+   f1984:	48 83 c2 01          	add    $0x1,%rdx
+   f1988:	48 89 15 71 ce 2a 00 	mov    %rdx,0x2ace71(%rip)        # 39e800 <seed>
+   f198f:	48 8b 15 6a ce 2a 00 	mov    0x2ace6a(%rip),%rdx        # 39e800 <seed>
+   f1996:	48 c1 ea 21          	shr    $0x21,%rdx
+   f199a:	89 d6                	mov    %edx,%esi
+   f199c:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+   f19a0:	89 f0                	mov    %esi,%eax
+   f19a2:	48 c1 e1 2f          	shl    $0x2f,%rcx
+   f19a6:	48 09 cc             	or     %rcx,%rsp
+   f19a9:	5d                   	pop    %rbp
+   f19aa:	c3                   	retq   
+   f19ab:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
