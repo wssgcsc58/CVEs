@@ -1,79 +1,38 @@
-0000000000002800 <sgx_t_global_init_ecall>:
-    2800:	48 85 ff             	test   %rdi,%rdi
-    2803:	74 2b                	je     2830 <sgx_t_global_init_ecall+0x30>
-    2805:	41 55                	push   %r13
-    2807:	41 54                	push   %r12
-    2809:	be 18 00 00 00       	mov    $0x18,%esi
-    280e:	55                   	push   %rbp
-    280f:	53                   	push   %rbx
-    2810:	48 89 fb             	mov    %rdi,%rbx
-    2813:	48 83 ec 08          	sub    $0x8,%rsp
-    2817:	e8 c4 4e 00 00       	callq  76e0 <sgx_is_outside_enclave>
-    281c:	85 c0                	test   %eax,%eax
-    281e:	75 20                	jne    2840 <sgx_t_global_init_ecall+0x40>
-    2820:	b8 02 00 00 00       	mov    $0x2,%eax
-    2825:	48 83 c4 08          	add    $0x8,%rsp
-    2829:	5b                   	pop    %rbx
-    282a:	5d                   	pop    %rbp
-    282b:	41 5c                	pop    %r12
-    282d:	41 5d                	pop    %r13
-    282f:	c3                   	retq   
-    2830:	b8 02 00 00 00       	mov    $0x2,%eax
-    2835:	c3                   	retq   
-    2836:	66 2e 0f 1f 84 00 00 	nopw   %cs:0x0(%rax,%rax,1)
-    283d:	00 00 00 
-    2840:	0f ae e8             	lfence 
-    2843:	48 8b 6b 08          	mov    0x8(%rbx),%rbp
-    2847:	4c 8b 63 10          	mov    0x10(%rbx),%r12
-    284b:	48 85 ed             	test   %rbp,%rbp
-    284e:	74 58                	je     28a8 <sgx_t_global_init_ecall+0xa8>
-    2850:	4c 89 e6             	mov    %r12,%rsi
-    2853:	48 89 ef             	mov    %rbp,%rdi
-    2856:	e8 85 4e 00 00       	callq  76e0 <sgx_is_outside_enclave>
-    285b:	85 c0                	test   %eax,%eax
-    285d:	74 c1                	je     2820 <sgx_t_global_init_ecall+0x20>
-    285f:	4d 85 e4             	test   %r12,%r12
-    2862:	0f ae e8             	lfence 
-    2865:	74 6a                	je     28d1 <sgx_t_global_init_ecall+0xd1>
-    2867:	4c 89 e7             	mov    %r12,%rdi
-    286a:	e8 21 7f 00 00       	callq  a790 <dlmalloc>
-    286f:	49 89 c5             	mov    %rax,%r13
-    2872:	b8 03 00 00 00       	mov    $0x3,%eax
-    2877:	4d 85 ed             	test   %r13,%r13
-    287a:	74 a9                	je     2825 <sgx_t_global_init_ecall+0x25>
-    287c:	4c 89 e1             	mov    %r12,%rcx
-    287f:	48 89 ea             	mov    %rbp,%rdx
-    2882:	4c 89 e6             	mov    %r12,%rsi
-    2885:	4c 89 ef             	mov    %r13,%rdi
-    2888:	e8 d3 af 00 00       	callq  d860 <memcpy_s>
-    288d:	85 c0                	test   %eax,%eax
-    288f:	74 2e                	je     28bf <sgx_t_global_init_ecall+0xbf>
-    2891:	bb 01 00 00 00       	mov    $0x1,%ebx
-    2896:	4c 89 ef             	mov    %r13,%rdi
-    2899:	e8 d2 98 00 00       	callq  c170 <dlfree>
-    289e:	89 d8                	mov    %ebx,%eax
-    28a0:	eb 83                	jmp    2825 <sgx_t_global_init_ecall+0x25>
-    28a2:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
-    28a8:	0f ae e8             	lfence 
-    28ab:	48 8b 3b             	mov    (%rbx),%rdi
-    28ae:	4c 89 e2             	mov    %r12,%rdx
-    28b1:	31 f6                	xor    %esi,%esi
-    28b3:	e8 68 8d 01 00       	callq  1b620 <t_global_init_ecall>
-    28b8:	31 c0                	xor    %eax,%eax
-    28ba:	e9 66 ff ff ff       	jmpq   2825 <sgx_t_global_init_ecall+0x25>
-    28bf:	48 8b 3b             	mov    (%rbx),%rdi
-    28c2:	4c 89 e2             	mov    %r12,%rdx
-    28c5:	4c 89 ee             	mov    %r13,%rsi
-    28c8:	31 db                	xor    %ebx,%ebx
-    28ca:	e8 51 8d 01 00       	callq  1b620 <t_global_init_ecall>
-    28cf:	eb c5                	jmp    2896 <sgx_t_global_init_ecall+0x96>
-    28d1:	48 8b 3b             	mov    (%rbx),%rdi
-    28d4:	31 d2                	xor    %edx,%edx
-    28d6:	31 f6                	xor    %esi,%esi
-    28d8:	e8 43 8d 01 00       	callq  1b620 <t_global_init_ecall>
-    28dd:	31 c0                	xor    %eax,%eax
-    28df:	e9 41 ff ff ff       	jmpq   2825 <sgx_t_global_init_ecall+0x25>
-    28e4:	66 90                	xchg   %ax,%ax
-    28e6:	66 2e 0f 1f 84 00 00 	nopw   %cs:0x0(%rax,%rax,1)
-    28ed:	00 00 00 
-
+000000000001b620 <t_global_init_ecall>:
+   1b620:	53                   	push   %rbx
+   1b621:	48 83 ec 10          	sub    $0x10,%rsp
+   1b625:	48 87 3d f4 3a 22 00 	xchg   %rdi,0x223af4(%rip)        # 23f120 <_ZN8sgx_tstd7enclave10ENCLAVE_ID17h5a0dc914ef7488deE.llvm.712045344937972630>
+   1b62c:	48 89 e7             	mov    %rsp,%rdi
+   1b62f:	e8 3c 27 00 00       	callq  1dd70 <_ZN8sgx_tstd7enclave16set_enclave_path17hdaadd093ec303c52E>
+   1b634:	80 3c 24 02          	cmpb   $0x2,(%rsp)
+   1b638:	75 40                	jne    1b67a <t_global_init_ecall+0x5a>
+   1b63a:	48 8b 5c 24 08       	mov    0x8(%rsp),%rbx
+   1b63f:	48 8b 3b             	mov    (%rbx),%rdi
+   1b642:	48 8b 43 08          	mov    0x8(%rbx),%rax
+   1b646:	ff 10                	callq  *(%rax)
+   1b648:	48 8b 43 08          	mov    0x8(%rbx),%rax
+   1b64c:	48 8b 70 08          	mov    0x8(%rax),%rsi
+   1b650:	48 85 f6             	test   %rsi,%rsi
+   1b653:	74 0d                	je     1b662 <t_global_init_ecall+0x42>
+   1b655:	48 8b 3b             	mov    (%rbx),%rdi
+   1b658:	48 8b 50 10          	mov    0x10(%rax),%rdx
+   1b65c:	ff 15 36 27 22 00    	callq  *0x222736(%rip)        # 23dd98 <_DYNAMIC+0x288>
+   1b662:	be 18 00 00 00       	mov    $0x18,%esi
+   1b667:	ba 08 00 00 00       	mov    $0x8,%edx
+   1b66c:	48 89 df             	mov    %rbx,%rdi
+   1b66f:	48 83 c4 10          	add    $0x10,%rsp
+   1b673:	5b                   	pop    %rbx
+   1b674:	ff 25 1e 27 22 00    	jmpq   *0x22271e(%rip)        # 23dd98 <_DYNAMIC+0x288>
+   1b67a:	48 83 c4 10          	add    $0x10,%rsp
+   1b67e:	5b                   	pop    %rbx
+   1b67f:	c3                   	retq   
+   1b680:	48 8b 3b             	mov    (%rbx),%rdi
+   1b683:	48 8b 73 08          	mov    0x8(%rbx),%rsi
+   1b687:	e8 74 fc ff ff       	callq  1b300 <_ZN5alloc5alloc8box_free17h378b702b070de187E.llvm.3207007513935919246>
+   1b68c:	48 89 df             	mov    %rbx,%rdi
+   1b68f:	e8 8c fc ff ff       	callq  1b320 <_ZN5alloc5alloc8box_free17h47783bef4fbe4415E.llvm.3207007513935919246>
+   1b694:	0f 0b                	ud2    
+   1b696:	0f 0b                	ud2    
+   1b698:	0f 0b                	ud2    
+   1b69a:	0f 0b                	ud2    
+   1b69c:	0f 1f 40 00          	nopl   0x0(%rax)
